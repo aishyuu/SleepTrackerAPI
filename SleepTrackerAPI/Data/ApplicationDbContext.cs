@@ -1,6 +1,14 @@
-﻿namespace SleepTrackerAPI.Data;
+﻿using Microsoft.EntityFrameworkCore;
+using SleepTrackerAPI.Model;
 
-public class ApplicationDbContext
+namespace SleepTrackerAPI.Data;
+
+public class ApplicationDbContext : DbContext
 {
-    
+    public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
+    {
+
+    }
+
+    public DbSet<SleepData> SleepDatas { get; set; }
 }
